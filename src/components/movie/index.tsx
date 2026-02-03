@@ -47,13 +47,13 @@ export function Movie(props: MoviePropsType) {
 
   return (
     <Link
-      className={`relative w-50 h-78.75 min-w-0 ${carouselClassname} ${firstMovieClassName}`}
+      className={`relative w-40 h-63 md:w-50 md:h-78.75 min-w-0 ${carouselClassname} ${firstMovieClassName}`}
       href={`/movie-detail/${id}`}
     >
       <Image
         alt={title}
         src={`https://image.tmdb.org/t/p/w342/${poster_path}`}
-        className="rounded-3xl w-50 h-78.75 object-cover"
+        className="rounded-3xl w-40 h-63 md:w-50 md:h-78.75 object-cover"
         height={315}
         onLoad={() => setIsLoading(false)}
         width={200}

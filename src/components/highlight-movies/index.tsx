@@ -17,7 +17,7 @@ export async function HighlightMovies() {
     }
   }
   return (
-    <section className="flex gap-x-14 pl-9">
+    <section className="flex gap-x-14 overflow-hidden">
       <Carousel>{renderHighlightMovies()}</Carousel>
     </section>
   );

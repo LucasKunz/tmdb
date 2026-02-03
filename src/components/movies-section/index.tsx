@@ -8,20 +8,24 @@ export async function MoviesSection(props: MoviesSectionPropsType) {
 
   const moviesResponse = await tmdbFetch<MoviesResponseType>(fetchUrl);
 
-  const sectionClassName = !isCarousel ? "px-10" : "";
+  const sectionClassName = !isCarousel ? "px-2 md:px-10" : "";
 
   function renderTitle() {
     if (!title) {
       return null;
     }
 
-    return <h1 className="text-white font-semibold text-2xl pl-9">{title}</h1>;
+    return (
+      <h1 className="pl-4 font-semibold text-white md:pl-9 md:text-2xl">
+        {title}
+      </h1>
+    );
   }
 
   function renderMovies() {
     if (moviesResponse?.results) {
       const filteredMovies = moviesResponse.results.filter(
-        (movie) => !!movie.poster_path
+        (movie) => !!movie.poster_path,
       );
 
       return filteredMovies.map((movie, index) => (
@@ -53,9 +57,11 @@ export async function MoviesSection(props: MoviesSectionPropsType) {
     }
 
     return (
-      <section className={`flex flex-col gap-10 ${sectionClassName}`}>
+      <section
+        className={`flex flex-col gap-10 overflow-hidden ${sectionClassName}`}
+      >
         {renderTitle()}
-        <div className="flex gap-9 flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-9">
           {renderMoviesWrapper()}
         </div>
       </section>

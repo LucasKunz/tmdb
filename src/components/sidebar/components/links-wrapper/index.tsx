@@ -2,17 +2,9 @@
 
 import { STRINGS } from "@/res/strings";
 import { Compass, Film, Tv } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
-import { ReactElement, ReactNode } from "react";
-
-export type RenderLinkParamsType = {
-  icon: ReactElement;
-  link: string;
-  title: string;
-};
+import { RenderLinkParamsType } from "./types";
 
 export function LinksWrapper() {
   const pathname = usePathname();
@@ -26,7 +18,7 @@ export function LinksWrapper() {
       return null;
     }
 
-    return <span className="w-1.5 absolute h-10 right-0 bg-white" />;
+    return <span className="absolute right-0 h-10 w-1.5 bg-white" />;
   }
 
   function renderLink(params: RenderLinkParamsType) {
@@ -35,7 +27,7 @@ export function LinksWrapper() {
     const titleColorClassName = getActiveLinkClassName(link);
 
     return (
-      <Link href={link} className="gap-3 flex items-center">
+      <Link href={link} className="flex items-center gap-3">
         {icon}
         <h1 className={`text-xl font-semibold ${titleColorClassName}`}>
           {title}
@@ -46,7 +38,7 @@ export function LinksWrapper() {
   }
 
   return (
-    <div className="mt-6 gap-7 flex flex-col w-full">
+    <div className="my-20 flex w-full flex-col gap-7">
       {renderLink({
         icon: <Compass className={getActiveLinkClassName("/")} />,
         link: "/",

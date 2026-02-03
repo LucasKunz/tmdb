@@ -20,7 +20,7 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
     return genres.slice(0, 2).map((genre) => (
       <span
         key={genre.id}
-        className="text-gray font-medium border border-gray px-4 py-0.5 rounded-full"
+        className="text-gray border-gray rounded-full border px-4 py-0.5 font-medium"
       >
         {genre.name}
       </span>
@@ -31,56 +31,50 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
     const { label, value } = params;
     return (
       <div className="flex flex-col">
-        <span className="text-white text-xl font-semibold">{label}</span>
-        <span className="text-white text-xl">{value}</span>
+        <span className="text-xl font-semibold text-white">{label}</span>
+        <span className="text-xl text-white">{value}</span>
       </div>
     );
   }
 
   return (
-    <div className="px-10 gap-5 flex w-full flex-col max-w-10/12 2xl:mx-auto">
-      <div className="flex relative w-full h-82.5">
+    <div className="flex w-full flex-col gap-5 px-10 md:max-w-10/12 2xl:mx-auto">
+      <div className="relative flex h-82.5 w-full">
         <Image
           alt={title}
           src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-          className="h-82.5 object-cover rounded-2xl w-full"
+          className="h-82.5 w-full rounded-2xl object-cover"
           height={330}
           width={1198}
         />
-        <div className="absolute left-1/2 top-1/2 -translate-1/2 gap-3 items-center flex flex-col">
-          <button className="flex gap-1.5 items-center p-7 bg-white/15 justify-center rounded-full backdrop-blur-sm border-2 border-[#E8E8E833]/20">
-            <Play className="text-white fill-white" size={50} />
+        <div className="absolute top-1/2 left-1/2 flex w-full -translate-1/2 flex-col items-center justify-center gap-3">
+          <button className="flex items-center justify-center gap-1.5 rounded-full border-2 border-[#E8E8E833]/20 bg-white/15 p-7 backdrop-blur-sm">
+            <Play className="fill-white text-white" size={50} />
           </button>
-          <h2 className="text-2xl text-white font-medium text-shadow-lg shadow-2xl">
+          <h2 className="w-full text-center text-2xl font-medium text-white shadow-2xl text-shadow-lg">
             Watch trailer
           </h2>
         </div>
-        {/* <iframe
-          width="420"
-          height="315"
-          src="https://www.youtube.com/embed/tgbNymZ7vqY"
-          className="absolute top-0 left-0 w-full h-82.5 rounded-2xl"
-        /> */}
       </div>
-      <div className="flex flex-col w-3/4 gap-6">
-        <div className="flex gap-2 items-center justify-between">
+      <div className="flex w-full flex-col gap-6 md:w-3/4">
+        <div className="flex flex-col items-center justify-center gap-2 max-md:gap-8 md:flex-row md:justify-between">
           <div>
             <h1 className="text-2xl font-medium text-white">
               {title} • 2022 • 13 • 2h10
             </h1>
           </div>
-          <div className="flex gap-3 items-center">
+          <div className="flex flex-col items-start gap-3 max-md:w-full max-md:gap-8 md:flex-row">
             <div className="flex gap-2">{renderGenresTags()}</div>
-            <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-2">
               <Star className="fill-[#ddaf12] text-transparent" size={30} />
-              <p className="text-white text-2xl font-medium">
+              <p className="text-2xl font-medium text-white">
                 {vote_average.toFixed(2)}
               </p>
             </div>
           </div>
         </div>
-        <p className="text-white text-xl">{overview}</p>
-        <span className="w-full h-px bg-dove-gray rounded-full" />
+        <p className="text-xl text-white">{overview}</p>
+        <span className="bg-dove-gray h-px w-full rounded-full" />
         <div className="flex flex-col gap-4">
           {renderCredits({ label: "Director", value: "Jeyaraj" })}
           {renderCredits({ label: "Cast", value: "Kamal Haasan" })}

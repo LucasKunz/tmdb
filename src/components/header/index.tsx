@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { SearchInput } from "../search";
+import { Menu } from "../menu";
 
 export function Header() {
   return (
-    <div className="flex justify-between px-9">
+    <div className="flex items-center justify-between gap-4 px-9">
+      <Menu />
       <SearchInput />
       <Image
         alt=""
         src="/user-profile.png"
         height={70}
         width={70}
-        className="rounded-full size-17.5 object-cover"
+        className="hidden rounded-full object-cover md:block md:size-17.5"
       />
     </div>
   );
