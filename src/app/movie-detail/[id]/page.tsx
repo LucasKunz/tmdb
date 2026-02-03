@@ -1,11 +1,8 @@
 import { tmdbFetch } from "@/lib/tmdb";
 import Image from "next/image";
 import { Play, Star } from "lucide-react";
-import {
-  MovieDetailsPropsType,
-  MovieDetailsType,
-  RenderCreditsParamsType,
-} from "./types";
+import { MovieDetailsPropsType, MovieDetailsType } from "./types";
+import { Credits } from "@/components";
 
 export default async function MovieDetail(props: MovieDetailsPropsType) {
   const { params } = props;
@@ -41,23 +38,14 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
     ));
   }
 
-  function renderCredits(params: RenderCreditsParamsType) {
-    const { label, value } = params;
-    return (
-      <div className="flex flex-col">
-        <span className="text-xl font-semibold text-white">{label}</span>
-        <span className="text-xl text-white">{value}</span>
-      </div>
-    );
-  }
-
   return (
     <div className="flex w-full flex-col gap-5 px-10 md:max-w-10/12 2xl:mx-auto">
       <div className="relative flex h-82.5 w-full">
+        <div className="bg-dove-gray absolute top-0 h-82.5 w-full animate-pulse rounded-2xl" />
         <Image
           alt={title}
           src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-          className="h-82.5 w-full rounded-2xl object-cover"
+          className="relative z-10 h-82.5 w-full rounded-2xl object-cover"
           height={330}
           width={1198}
         />
@@ -83,7 +71,7 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
           <div className="flex flex-col items-start gap-3 max-md:w-full max-md:gap-8 md:flex-row">
             <div className="flex gap-2">{renderGenresTags()}</div>
             <div className="flex items-center gap-2">
-              <Star className="fill-[#ddaf12] text-transparent" size={30} />
+              <Star className="fill-gold-tips text-transparent" size={30} />
               <p className="text-2xl font-medium text-white">
                 {vote_average.toFixed(2)}
               </p>
@@ -92,11 +80,7 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
         </div>
         <p className="text-xl text-white">{overview}</p>
         <span className="bg-dove-gray h-px w-full rounded-full" />
-        <div className="flex flex-col gap-4">
-          {renderCredits({ label: "Director", value: "Jeyaraj" })}
-          {renderCredits({ label: "Cast", value: "Kamal Haasan" })}
-          {renderCredits({ label: "Language", value: "Tamil" })}
-        </div>
+        <Credits movieId={id} />
       </div>
     </div>
   );

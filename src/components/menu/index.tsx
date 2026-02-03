@@ -7,7 +7,7 @@ export function Menu() {
   const { toggleMenu } = useMenu();
 
   return (
-    <button onClick={toggleMenu} className="md:hidden">
+    <button onClick={toggleMenu} className="md:hidden" title="Abrir menu">
       <MenuIcon className="text-white" size={40} />
     </button>
   );

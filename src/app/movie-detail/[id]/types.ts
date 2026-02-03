@@ -9,8 +9,3 @@ export type MovieDetailsType = MovieType & {
   genres: Genre[];
   runtime: number;
 };
-
-export type RenderCreditsParamsType = {
-  label: string;
-  value: string;
-};

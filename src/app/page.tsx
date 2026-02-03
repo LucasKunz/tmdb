@@ -1,5 +1,8 @@
-import { HighlightMovies, MoviesSection } from "@/components";
-import { HighlightMoviesSkeleton } from "@/components/highlight-movies/skeleton";
+import {
+  HighlightMovies,
+  HighlightMoviesSkeleton,
+  MoviesSection,
+} from "@/components";
 import { STRINGS } from "@/res/strings";
 import { Suspense } from "react";
 

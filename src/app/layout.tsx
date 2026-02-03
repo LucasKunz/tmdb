@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
-import { Header } from "@/components";
+import { Header, SidebarWrapper } from "@/components";
 import { RootLayoutPropsType } from "./types";
-import { SidebarWrapper } from "@/components/sidebar-wrapper";
 import { MenuProvider } from "@/context/menu";
 import { STRINGS } from "@/res/strings";
 

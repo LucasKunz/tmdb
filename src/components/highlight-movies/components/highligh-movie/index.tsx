@@ -17,12 +17,14 @@ export function HighlightMovie(props: HighlightMoviePropsType) {
     <div
       className={`embla__slide relative flex h-84 w-108 max-w-200 min-w-0 flex-[0_0_224px] shrink-0 md:h-87.5 md:w-200 md:flex-[0_0_55%] ${firstMovieClassName}`}
     >
+      <div className="bg-dove-gray absolute top-0 h-84 w-56 animate-pulse rounded-3xl md:hidden" />
+      <div className="bg-dove-gray absolute top-0 h-87.5 w-200 animate-pulse rounded-3xl max-md:hidden" />
       <Image
         alt={title}
         src={`https://image.tmdb.org/t/p/w342/${poster_path}`}
-        className="h-84 w-108 rounded-3xl object-cover md:hidden md:h-87.5"
-        height={432}
-        width={272}
+        className="z-10 h-84 w-108 rounded-3xl object-cover md:hidden"
+        height={336}
+        width={224}
         preload={isPriorityImage}
         loading={isPriorityImage ? "eager" : "lazy"}
         fetchPriority={isPriorityImage ? "high" : "low"}
@@ -30,7 +32,7 @@ export function HighlightMovie(props: HighlightMoviePropsType) {
       <Image
         alt={title}
         src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
-        className="h-108 w-200 rounded-3xl object-cover max-md:hidden md:h-87.5"
+        className="z-10 h-87.5 w-200 rounded-3xl object-cover max-md:hidden"
         height={400}
         width={800}
         preload={isPriorityImage}
@@ -38,7 +40,7 @@ export function HighlightMovie(props: HighlightMoviePropsType) {
         fetchPriority={isPriorityImage ? "high" : "low"}
       />
 
-      <div className="absolute bottom-5 flex items-start gap-6 max-md:left-2 md:right-8 md:items-center">
+      <div className="absolute bottom-5 z-10 flex items-start gap-6 max-md:left-2 md:right-8 md:items-center">
         <Link
           href={`/movie-detail/${id}`}
           className="flex items-center justify-center gap-1.5 rounded-2xl bg-[#E8E8E826]/15 px-6 py-3 backdrop-blur-[5px]"
