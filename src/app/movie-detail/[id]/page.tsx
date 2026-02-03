@@ -13,8 +13,22 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
 
   const movieResponse = await tmdbFetch<MovieDetailsType>(`/movie/${id}`);
 
-  const { backdrop_path, genres, overview, title, vote_average } =
-    movieResponse;
+  const {
+    backdrop_path,
+    genres,
+    overview,
+    title,
+    vote_average,
+    runtime,
+    release_date,
+  } = movieResponse;
+
+  const releaseYear = release_date
+    ? new Date(release_date).getFullYear()
+    : "N/A";
+  const formattedRuntime = runtime
+    ? `${Math.floor(runtime / 60)}h${runtime % 60}m`
+    : "N/A";
 
   function renderGenresTags() {
     return genres.slice(0, 2).map((genre) => (
@@ -48,7 +62,10 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
           width={1198}
         />
         <div className="absolute top-1/2 left-1/2 flex w-full -translate-1/2 flex-col items-center justify-center gap-3">
-          <button className="flex items-center justify-center gap-1.5 rounded-full border-2 border-[#E8E8E833]/20 bg-white/15 p-7 backdrop-blur-sm">
+          <button
+            className="flex items-center justify-center gap-1.5 rounded-full border-2 border-[#E8E8E833]/20 bg-white/15 p-7 backdrop-blur-sm"
+            aria-label="Watch trailer"
+          >
             <Play className="fill-white text-white" size={50} />
           </button>
           <h2 className="w-full text-center text-2xl font-medium text-white shadow-2xl text-shadow-lg">
@@ -60,7 +77,7 @@ export default async function MovieDetail(props: MovieDetailsPropsType) {
         <div className="flex flex-col items-center justify-center gap-2 max-md:gap-8 md:flex-row md:justify-between">
           <div>
             <h1 className="text-2xl font-medium text-white">
-              {title} • 2022 • 13 • 2h10
+              {title} • {releaseYear} • {formattedRuntime}
             </h1>
           </div>
           <div className="flex flex-col items-start gap-3 max-md:w-full max-md:gap-8 md:flex-row">

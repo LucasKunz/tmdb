@@ -20,7 +20,7 @@ export function Movie(props: MoviePropsType) {
     }
 
     return (
-      <div className="w-50 h-78.75 animate-pulse bg-dove-gray rounded-3xl absolute z-10 top-0" />
+      <div className="bg-dove-gray absolute top-0 z-10 h-78.75 w-50 animate-pulse rounded-3xl" />
     );
   }
 
@@ -30,11 +30,11 @@ export function Movie(props: MoviePropsType) {
     }
 
     return (
-      <div className="absolute top-0 flex gap-2 right-0 bg-[#E8E8E826]/15 py-1 px-2 rounded-bl-[20px] rounded-tr-[20px] backdrop-blur-sm ">
+      <div className="absolute top-0 right-0 flex gap-2 rounded-tr-[20px] rounded-bl-[20px] bg-[#E8E8E826]/15 px-2 py-1 backdrop-blur-sm">
         <Image
           alt=""
           src="/star.png"
-          className="object-cover size-5"
+          className="size-5 object-cover"
           height={20}
           width={20}
         />
@@ -47,13 +47,13 @@ export function Movie(props: MoviePropsType) {
 
   return (
     <Link
-      className={`relative w-40 h-63 md:w-50 md:h-78.75 min-w-0 ${carouselClassname} ${firstMovieClassName}`}
+      className={`relative h-63 w-40 min-w-0 md:h-78.75 md:w-50 ${carouselClassname} ${firstMovieClassName}`}
       href={`/movie-detail/${id}`}
     >
       <Image
         alt={title}
         src={`https://image.tmdb.org/t/p/w342/${poster_path}`}
-        className="rounded-3xl w-40 h-63 md:w-50 md:h-78.75 object-cover"
+        className="h-63 w-40 rounded-3xl object-cover md:h-78.75 md:w-50"
         height={315}
         onLoad={() => setIsLoading(false)}
         width={200}

@@ -1,5 +1,9 @@
-const TMDB_BASE_URL = process.env.TMDB_BASE_URL!;
-const TMDB_TOKEN = process.env.TMDB_API_TOKEN!;
+const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
+const TMDB_TOKEN = process.env.TMDB_API_TOKEN;
+
+if (!TMDB_BASE_URL || !TMDB_TOKEN) {
+  throw new Error("Missing required TMDB environment variables");
+}
 
 export async function tmdbFetch<T>(
   path: string,
@@ -16,7 +20,7 @@ export async function tmdbFetch<T>(
   });
 
   if (!res.ok) {
-    throw new Error(`TMDB error: ${res.status}`);
+    throw new Error(`TMDB API error: ${res.status} - ${res.statusText}`);
   }
 
   return res.json();

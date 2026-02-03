@@ -15,7 +15,7 @@ const poppinsSans = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Movie Explorer",
+  title: "MBC Play",
   description:
     "Discover movies, explore trending titles, search by genre, and dive into detailed information powered by TMDB. Your go-to movie explorer for films, ratings, and cast details",
 };

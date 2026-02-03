@@ -8,7 +8,7 @@ export function Header() {
       <Menu />
       <SearchInput />
       <Image
-        alt=""
+        alt="User profile"
         src="/user-profile.png"
         height={70}
         width={70}

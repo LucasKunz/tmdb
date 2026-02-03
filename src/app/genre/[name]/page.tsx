@@ -10,7 +10,7 @@ export default async function Genre(props: GenrePropsType) {
 
   return (
     <Suspense fallback={<GenreLoading />}>
-      <MoviesSection fetchUrl={`/discover/movie?with_genres=${name}`} />;
+      <MoviesSection fetchUrl={`/discover/movie?with_genres=${name}`} />
     </Suspense>
   );
 }

@@ -1,13 +1,14 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
+import { MenuContextType, MenuProviderPropsType } from "./types";
 
-const MenuContext = createContext({
+const MenuContext = createContext<MenuContextType>({
   isOpen: false,
   toggleMenu: () => {},
 });
 
-export function MenuProvider({ children }) {
+export function MenuProvider({ children }: MenuProviderPropsType) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleMenu() {

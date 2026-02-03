@@ -17,11 +17,11 @@ export async function Genres() {
   }
 
   return (
-    <div className="flex flex-col gap-8 w-full">
-      <h2 className="font-light text-dove-gray">
+    <div className="flex w-full flex-col gap-8">
+      <h2 className="text-dove-gray font-light">
         {STRINGS.COMPONENTS.SIDE_BAR.GENRES_TITLE}
       </h2>
-      <ul className="gap-4 flex flex-col">{renderGenres()}</ul>
+      <ul className="flex flex-col gap-4">{renderGenres()}</ul>
     </div>
   );
 }

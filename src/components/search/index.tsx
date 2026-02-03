@@ -11,8 +11,12 @@ export function SearchInput() {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      if (search) {
-        router.push(`/search?q=${search}`);
+      e.preventDefault();
+
+      const trimmedSearch = search.trim();
+
+      if (trimmedSearch) {
+        router.push(`/search?q=${encodeURIComponent(trimmedSearch)}`);
       } else {
         router.push("/");
       }

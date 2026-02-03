@@ -7,6 +7,7 @@ export type MovieDetailsPropsType = {
 
 export type MovieDetailsType = MovieType & {
   genres: Genre[];
+  runtime: number;
 };
 
 export type RenderCreditsParamsType = {
