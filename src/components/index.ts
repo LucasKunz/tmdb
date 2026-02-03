@@ -1,6 +1,12 @@
+export { Carousel } from "./carousel";
+export { Credits } from "./credits";
 export { Genres } from "./genres";
 export { Header } from "./header";
 export { HighlightMovies } from "./highlight-movies";
+export { HighlightMoviesSkeleton } from "./highlight-movies/skeleton";
+export { Menu } from "./menu";
 export { Movie } from "./movie";
 export { MoviesSection } from "./movies-section";
 export { SearchInput } from "./search";
+export { Sidebar } from "./sidebar";
+export { SidebarWrapper } from "./sidebar-wrapper";
