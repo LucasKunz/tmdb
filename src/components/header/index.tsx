@@ -5,7 +5,7 @@ import { Menu } from "../menu";
 
 export function Header() {
   return (
-    <div className="flex items-center justify-between gap-4 px-9">
+    <div className="flex items-center justify-between gap-4 px-4 md:px-9">
       <Menu />
       <SearchInput />
       <Image

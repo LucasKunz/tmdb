@@ -15,25 +15,29 @@ export function HighlightMovie(props: HighlightMoviePropsType) {
 
   return (
     <div
-      className={`embla__slide relative flex h-108 w-200 max-w-200 min-w-0 flex-[0_0_85%] shrink-0 md:h-87.5 md:flex-[0_0_55%] ${firstMovieClassName}`}
+      className={`embla__slide relative flex h-84 w-108 max-w-200 min-w-0 flex-[0_0_224px] shrink-0 md:h-87.5 md:w-200 md:flex-[0_0_55%] ${firstMovieClassName}`}
     >
-      <picture>
-        <source
-          media="(max-width: 768px)"
-          srcSet={`https://image.tmdb.org/t/p/w342/${poster_path}`}
-        />
-        <Image
-          alt={title}
-          src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
-          className="h-108 w-200 rounded-3xl object-cover md:h-87.5"
-          height={400}
-          width={800}
-          preload={isPriorityImage}
-          loading={isPriorityImage ? "eager" : "lazy"}
-          fetchPriority={isPriorityImage ? "high" : "low"}
-        />
-      </picture>
-      <picture></picture>
+      <Image
+        alt={title}
+        src={`https://image.tmdb.org/t/p/w342/${poster_path}`}
+        className="h-84 w-108 rounded-3xl object-cover md:hidden md:h-87.5"
+        height={432}
+        width={272}
+        preload={isPriorityImage}
+        loading={isPriorityImage ? "eager" : "lazy"}
+        fetchPriority={isPriorityImage ? "high" : "low"}
+      />
+      <Image
+        alt={title}
+        src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
+        className="h-108 w-200 rounded-3xl object-cover max-md:hidden md:h-87.5"
+        height={400}
+        width={800}
+        preload={isPriorityImage}
+        loading={isPriorityImage ? "eager" : "lazy"}
+        fetchPriority={isPriorityImage ? "high" : "low"}
+      />
+
       <div className="absolute bottom-5 flex items-start gap-6 max-md:left-2 md:right-8 md:items-center">
         <Link
           href={`/movie-detail/${id}`}

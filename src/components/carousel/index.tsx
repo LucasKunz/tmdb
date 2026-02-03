@@ -11,7 +11,7 @@ export function Carousel(props: CarouselPropsType) {
   return (
     <div className="embla w-full">
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-        <div className="embla__container gap-12 flex touch-pan-y touch-pinch-zoom">
+        <div className="embla__container flex touch-pan-y touch-pinch-zoom gap-8 md:gap-12">
           {children}
         </div>
       </div>

@@ -12,7 +12,9 @@ export function Movie(props: MoviePropsType) {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const carouselClassname = isCarousel ? "embla__slide flex-[0_0_200px]" : "";
+  const carouselClassname = isCarousel
+    ? "embla__slide flex-[0_0_160px] md:flex-[0_0_200px]"
+    : "";
   const firstMovieClassName = index === 0 && isCarousel ? "ml-9" : "";
 
   function renderSkeleton() {

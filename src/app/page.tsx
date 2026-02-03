@@ -11,8 +11,16 @@ export default function Home() {
       </Suspense>
 
       <Suspense fallback={<p>{STRINGS.SCREENS.HOME.LOADING}</p>}>
-        <MoviesSection fetchUrl="/movie/popular" title={STRINGS.SCREENS.HOME.POPULAR_TITLE} isCarousel />
-        <MoviesSection fetchUrl="/movie/upcoming" title={STRINGS.SCREENS.HOME.UPCOMING_TITLE} isCarousel />
+        <MoviesSection
+          fetchUrl="/movie/popular"
+          title={STRINGS.SCREENS.HOME.POPULAR_TITLE}
+          isCarousel
+        />
+        <MoviesSection
+          fetchUrl="/movie/upcoming"
+          title={STRINGS.SCREENS.HOME.UPCOMING_TITLE}
+          isCarousel
+        />
       </Suspense>
     </>
   );
