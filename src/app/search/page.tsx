@@ -1,4 +1,5 @@
 import { MoviesSection } from "@/components";
+import { STRINGS } from "@/res/strings";
 import { SearchPropsType } from "./types";
 
 export default async function Search(props: SearchPropsType) {
@@ -8,7 +9,7 @@ export default async function Search(props: SearchPropsType) {
   return (
     <MoviesSection
       fetchUrl={`/search/movie?query=${q}`}
-      title={`Exibindo buscas para: ${q}`}
+      title={`${STRINGS.SCREENS.SEARCH.TITLE_PREFIX} ${q}`}
     />
   );
 }

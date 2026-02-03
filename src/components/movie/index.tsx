@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MoviePropsType } from "./types";
 import { useState } from "react";
+import { Star } from "lucide-react";
 
 export function Movie(props: MoviePropsType) {
   const { isCarousel, index, movie } = props;
@@ -31,13 +32,7 @@ export function Movie(props: MoviePropsType) {
 
     return (
       <div className="absolute top-0 right-0 flex gap-2 rounded-tr-[20px] rounded-bl-[20px] bg-[#E8E8E826]/15 px-2 py-1 backdrop-blur-sm">
-        <Image
-          alt=""
-          src="/star.png"
-          className="size-5 object-cover"
-          height={20}
-          width={20}
-        />
+        <Star className="fill-[#ddaf12] text-transparent" size={20} />
         <span className="font-medium text-white">
           {vote_average.toFixed(2)}
         </span>

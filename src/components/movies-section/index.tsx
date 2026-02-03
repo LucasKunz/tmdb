@@ -2,6 +2,7 @@ import { MoviesResponseType, MoviesSectionPropsType } from "./types";
 import { Movie } from "../movie";
 import { tmdbFetch } from "@/lib/tmdb";
 import { Carousel } from "../carousel/index";
+import { STRINGS } from "@/res/strings";
 
 export async function MoviesSection(props: MoviesSectionPropsType) {
   const { fetchUrl, isCarousel = false, title } = props;
@@ -51,7 +52,7 @@ export async function MoviesSection(props: MoviesSectionPropsType) {
     if (!moviesResponse.results.length) {
       return (
         <p className="p-10 text-center text-2xl text-white">
-          Não encontramos resultados para sua busca
+          {STRINGS.COMPONENTS.MOVIES_SECTION.NO_RESULTS}
         </p>
       );
     }

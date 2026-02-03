@@ -1,6 +1,6 @@
 import { HighlightMovies, MoviesSection } from "@/components";
 import { HighlightMoviesSkeleton } from "@/components/highlight-movies/skeleton";
-
+import { STRINGS } from "@/res/strings";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -10,9 +10,9 @@ export default function Home() {
         <HighlightMovies />
       </Suspense>
 
-      <Suspense fallback={<p>Loading...</p>}>
-        <MoviesSection fetchUrl="/movie/popular" title="Em alta" isCarousel />
-        <MoviesSection fetchUrl="/movie/upcoming" title="Upcoming" isCarousel />
+      <Suspense fallback={<p>{STRINGS.SCREENS.HOME.LOADING}</p>}>
+        <MoviesSection fetchUrl="/movie/popular" title={STRINGS.SCREENS.HOME.POPULAR_TITLE} isCarousel />
+        <MoviesSection fetchUrl="/movie/upcoming" title={STRINGS.SCREENS.HOME.UPCOMING_TITLE} isCarousel />
       </Suspense>
     </>
   );

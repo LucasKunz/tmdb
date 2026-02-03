@@ -1,5 +1,6 @@
 "use client";
 
+import { STRINGS } from "@/res/strings";
 import { useEffect } from "react";
 
 export default function Error({
@@ -16,16 +17,16 @@ export default function Error({
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-4 px-4">
       <h2 className="text-2xl font-semibold text-white">
-        Algo deu errado!
+        {STRINGS.SCREENS.ERROR.TITLE}
       </h2>
       <p className="text-center text-white">
-        Ocorreu um erro ao carregar esta página.
+        {STRINGS.SCREENS.ERROR.MESSAGE}
       </p>
       <button
         onClick={reset}
         className="rounded-lg bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-gray-200"
       >
-        Tentar novamente
+        {STRINGS.SCREENS.ERROR.RETRY_BUTTON}
       </button>
     </div>
   );

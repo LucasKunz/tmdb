@@ -1,3 +1,4 @@
+import { STRINGS } from "@/res/strings";
 import Image from "next/image";
 import { SearchInput } from "../search";
 import { Menu } from "../menu";
@@ -8,7 +9,7 @@ export function Header() {
       <Menu />
       <SearchInput />
       <Image
-        alt="User profile"
+        alt={STRINGS.COMPONENTS.HEADER.USER_PROFILE_ALT}
         src="/user-profile.png"
         height={70}
         width={70}

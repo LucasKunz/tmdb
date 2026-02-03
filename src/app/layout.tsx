@@ -6,6 +6,7 @@ import { Header } from "@/components";
 import { RootLayoutPropsType } from "./types";
 import { SidebarWrapper } from "@/components/sidebar-wrapper";
 import { MenuProvider } from "@/context/menu";
+import { STRINGS } from "@/res/strings";
 
 const poppinsSans = Poppins({
   weight: ["400", "500", "600"],
@@ -15,16 +16,15 @@ const poppinsSans = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "MBC Play",
-  description:
-    "Discover movies, explore trending titles, search by genre, and dive into detailed information powered by TMDB. Your go-to movie explorer for films, ratings, and cast details",
+  title: STRINGS.METADATA.TITLE,
+  description: STRINGS.METADATA.DESCRIPTION,
 };
 
 export default function RootLayout(props: RootLayoutPropsType) {
   const { children } = props;
 
   return (
-    <html lang="en" className="h-full">
+    <html lang={STRINGS.METADATA.LANG} className="h-full">
       <body
         className={`${poppinsSans.className} h-full overflow-x-hidden antialiased`}
       >

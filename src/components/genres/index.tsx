@@ -18,7 +18,7 @@ export async function Genres() {
 
   return (
     <div className="flex w-full flex-col gap-8">
-      <h2 className="text-dove-gray font-light">
+      <h2 className="text-gray font-light">
         {STRINGS.COMPONENTS.SIDE_BAR.GENRES_TITLE}
       </h2>
       <ul className="flex flex-col gap-4">{renderGenres()}</ul>

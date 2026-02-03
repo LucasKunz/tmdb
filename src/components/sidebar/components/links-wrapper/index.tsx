@@ -10,7 +10,7 @@ export function LinksWrapper() {
   const pathname = usePathname();
 
   function getActiveLinkClassName(link: string) {
-    return pathname === link ? "text-white" : "text-dove-gray";
+    return pathname === link ? "text-white" : "text-gray";
   }
 
   function renderActiveBar(link: string) {

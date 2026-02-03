@@ -1,3 +1,4 @@
+import { STRINGS } from "@/res/strings";
 import Image from "next/image";
 import Link from "next/link";
 import { HighlightMoviePropsType } from "./types";
@@ -7,14 +8,14 @@ const PRIORITY_IMAGES = [0, 1];
 
 export function HighlightMovie(props: HighlightMoviePropsType) {
   const { index, movie } = props;
-  const { backdrop_path, id, poster_path } = movie;
+  const { backdrop_path, id, title, poster_path } = movie;
 
   const isPriorityImage = PRIORITY_IMAGES.includes(index);
   const firstMovieClassName = index === 0 ? "ml-9" : "";
 
   return (
     <div
-      className={`flex relative shrink-0 h-108 md:h-87.5 w-200 embla__slide flex-[0_0_85%] md:flex-[0_0_55%] min-w-0 max-w-200 ${firstMovieClassName}`}
+      className={`embla__slide relative flex h-108 w-200 max-w-200 min-w-0 flex-[0_0_85%] shrink-0 md:h-87.5 md:flex-[0_0_55%] ${firstMovieClassName}`}
     >
       <picture>
         <source
@@ -22,9 +23,9 @@ export function HighlightMovie(props: HighlightMoviePropsType) {
           srcSet={`https://image.tmdb.org/t/p/w342/${poster_path}`}
         />
         <Image
-          alt=""
+          alt={title}
           src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
-          className="rounded-3xl object-cover h-108 md:h-87.5 w-200"
+          className="h-108 w-200 rounded-3xl object-cover md:h-87.5"
           height={400}
           width={800}
           preload={isPriorityImage}
@@ -33,17 +34,21 @@ export function HighlightMovie(props: HighlightMoviePropsType) {
         />
       </picture>
       <picture></picture>
-      <div className="absolute max-md:left-2 md:right-8 bottom-5 items-start md:items-center flex gap-6">
+      <div className="absolute bottom-5 flex items-start gap-6 max-md:left-2 md:right-8 md:items-center">
         <Link
           href={`/movie-detail/${id}`}
-          className="flex gap-1.5 items-center py-3 px-6 bg-[#E8E8E826]/15 justify-center rounded-2xl backdrop-blur-[5px]"
+          className="flex items-center justify-center gap-1.5 rounded-2xl bg-[#E8E8E826]/15 px-6 py-3 backdrop-blur-[5px]"
         >
           <Play className="fill-white text-white" />
-          <span className="text-xl text-white font-semibold">Play</span>
+          <span className="text-xl font-semibold text-white">
+            {STRINGS.COMPONENTS.HIGHLIGHT_MOVIE.PLAY}
+          </span>
         </Link>
-        <button className="hidden md:flex gap-1.5 items-center py-3 px-6 bg-[#E8E8E826]/15 justify-center rounded-2xl backdrop-blur-[5px]">
+        <button className="hidden items-center justify-center gap-1.5 rounded-2xl bg-[#E8E8E826]/15 px-6 py-3 backdrop-blur-[5px] md:flex">
           <Image alt="" src="/info.svg" height={25} width={25} />
-          <span className="text-xl text-white font-semibold">Detalhes</span>
+          <span className="text-xl font-semibold text-white">
+            {STRINGS.COMPONENTS.HIGHLIGHT_MOVIE.DETAILS}
+          </span>
         </button>
       </div>
     </div>
